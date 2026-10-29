@@ -1,6 +1,6 @@
 {
   "name": "@df-script/notebook",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Interactive 2D spatial canvas notebook for df-script",
   "type": "module",
   "main": "./dist/index.js",
@@ -63,10 +63,12 @@
     "marked": "^18.0.6"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
     "@types/node": "^20.14.2",
     "@types/react": "^18.3.1",
     "@types/react-dom": "^18.3.7",
     "@vitejs/plugin-react": "^4.3.1",
+    "tailwindcss": "^4.3.3",
     "typescript": "^5.4.5",
     "vite": "^5.2.11",
     "vite-plugin-dts": "^4.5.4"
