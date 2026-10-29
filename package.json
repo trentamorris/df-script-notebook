@@ -1,6 +1,6 @@
 {
   "name": "@df-script/notebook",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Interactive 2D spatial canvas notebook for df-script",
   "type": "module",
   "main": "./dist/index.js",
