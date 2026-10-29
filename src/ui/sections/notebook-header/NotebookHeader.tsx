@@ -14,7 +14,7 @@ import {
   UndoRounded,
   RedoRounded,
 } from "@mui/icons-material";
-import { ScrollableCanvas } from "../../../../ui/elements";
+import { ScrollableCanvas } from "../../elements";
 import { Chip } from "../../elements";
 import { CELL_TYPES } from "../../../constants";
 import { CellType } from "../../../types";

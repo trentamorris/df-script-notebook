@@ -7,7 +7,7 @@ import {
   AutoAwesomeMosaic,
   MoreHoriz,
 } from "@mui/icons-material";
-import { ScrollableCanvas, ScrollableCanvasHandle } from "../../../../../../ui/elements";
+import { ScrollableCanvas, ScrollableCanvasHandle } from "../../../..";
 import { Chip, PanelNavigation } from "../../../..";
 import { useGridCanvas } from "../../hooks/useGridCanvas";
 import {

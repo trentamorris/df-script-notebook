@@ -109,3 +109,7 @@ export * from "../../utils/dragUtils";
 
 // SearchInput
 export * from "./search-input";
+
+// ScrollableCanvas
+export { ScrollableCanvas } from "./scrollable-canvas/ScrollableCanvas";
+export * from "./scrollable-canvas/types";

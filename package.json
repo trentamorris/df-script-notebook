@@ -12,7 +12,8 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
     },
-    "./styles.css": "./dist/styles.css"
+    "./styles.css": "./dist/style.css",
+    "./style.css": "./dist/style.css"
   },
   "files": [
     "dist",
