@@ -64,23 +64,28 @@ async function main() {
   }
   console.log("-----------------------------------------\n");
 
-  // Step 4: First User Confirmation
-  const confirm1 = await prompt(`Ready to publish ${pkgName}@${version} to npm registry? (yes/no): `);
-  if (confirm1.toLowerCase() !== "yes" && confirm1.toLowerCase() !== "y") {
-    console.log("🚫 Release cancelled by user. Nothing was published.");
-    process.exit(0);
-  }
+  const isAutoYes = process.argv.includes("--yes") || process.argv.includes("-y");
+  const tokenArg = process.argv.find(arg => arg.startsWith("--token="))?.split("=")[1];
 
-  // Step 4b: Second Final Confirmation
-  const confirm2 = await prompt(`⚠️ FINAL CONFIRMATION: Are you sure you want to proceed and publish v${version} live to npm? (yes/no): `);
-  if (confirm2.toLowerCase() !== "yes" && confirm2.toLowerCase() !== "y") {
-    console.log("🚫 Release cancelled on final confirmation. Nothing was published.");
-    process.exit(0);
+  // Step 4: First User Confirmation
+  if (!isAutoYes) {
+    const confirm1 = await prompt(`Ready to publish ${pkgName}@${version} to npm registry? (yes/no): `);
+    if (confirm1.toLowerCase() !== "yes" && confirm1.toLowerCase() !== "y") {
+      console.log("🚫 Release cancelled by user. Nothing was published.");
+      process.exit(0);
+    }
+
+    // Step 4b: Second Final Confirmation
+    const confirm2 = await prompt(`⚠️ FINAL CONFIRMATION: Are you sure you want to proceed and publish v${version} live to npm? (yes/no): `);
+    if (confirm2.toLowerCase() !== "yes" && confirm2.toLowerCase() !== "y") {
+      console.log("🚫 Release cancelled on final confirmation. Nothing was published.");
+      process.exit(0);
+    }
   }
 
   // Step 5: Authentication Token Handling
-  let token = process.env.NPM_TOKEN;
-  if (!token) {
+  let token = tokenArg || process.env.NPM_TOKEN;
+  if (!token && !isAutoYes) {
     console.log("\n💡 Tip: Use an npm Automation/Granular Access Token to bypass 2FA prompts.");
     token = await prompt("Enter your NPM publish token (or press Enter to use active CLI login session): ");
   }
@@ -108,3 +113,4 @@ async function main() {
 }
 
 main();
+
