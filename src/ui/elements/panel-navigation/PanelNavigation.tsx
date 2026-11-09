@@ -3,6 +3,7 @@ import { createPortal } from "react-dom";
 import { Popper, ClickAwayListener } from "@mui/material";
 import { ChevronRight, ArrowBack } from "@mui/icons-material";
 import { NavigationPanelItem, NavigationPanelProps, PanelItemProps, DEFAULT_PANEL_NAV_BACKDROP } from "./types";
+import styles from "../../../styles.module.css";
 
 export function PanelItem({
   icon,
@@ -249,7 +250,7 @@ export default function PanelNavigation({
       style={{
         maxHeight: resolvedMaxHeight,
       }}
-      className={`relative min-w-[260px] max-w-[320px] flex flex-col rounded-xl overflow-hidden select-none font-sans outline-none
+      className={`${styles.notebook} relative min-w-[260px] max-w-[320px] flex flex-col rounded-xl overflow-hidden select-none font-sans outline-none
         bg-[var(--panel-nav-bg)] backdrop-blur-xl
         shadow-[var(--panel-nav-shadow)] text-[var(--panel-nav-text-primary)]
         transition-[height,width] duration-250 ease-[cubic-bezier(0.2,0.0,0.0,1.0)]

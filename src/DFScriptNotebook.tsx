@@ -7,7 +7,7 @@ import { runCellCode } from "./ui/elements";
 import { registerNotebookKeyboardShortcuts } from "./keyboardShortcutsUtils";
 import NotebookHeader from "./ui/sections/notebook-header/NotebookHeader";
 import NotebookBody from "./ui/sections/notebook-body/NotebookBody";
-import "./styles.css";
+import styles from "./styles.module.css";
 
 
 export default function DFScriptNotebook() {
@@ -974,7 +974,7 @@ export default function DFScriptNotebook() {
   return (
     <div
       id="df-script-notebook"
-      className="grow h-full overflow-hidden bg-[var(--nb-bg-app)] flex flex-col min-w-0 select-text animate-fade-in"
+      className={`${styles.notebook} grow h-full overflow-hidden bg-[var(--nb-bg-app)] flex flex-col min-w-0 select-text animate-fade-in`}
     >
       <NotebookHeader
         notebookName={notebookName}
